@@ -12,6 +12,6 @@ namespace Product.Application.Constracts.Products
 
         Task RemovePermissionAsync();
 
-        Task GetAuthAsync();
+        Task<string> GetAuthAsync();
     }
 }

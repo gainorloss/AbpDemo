@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Product.Application;
 using Product.Domain;
@@ -11,6 +12,7 @@ using Product.EntityFrameworkCore.DbMigartions;
 using Product.EntityFrameworkCore.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Text;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
@@ -89,6 +91,17 @@ namespace Product.Host
                     //options.Authority = configuration["AuthServer:Authority"];
                     //options.RequireHttpsMetadata = false;
                     //options.Audience = "BookStore";
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,//是否验证Issuer
+                        ValidateAudience = true,//是否验证Audience
+                        ValidateLifetime = true,//是否验证失效时间
+                        ClockSkew = TimeSpan.FromSeconds(30),
+                        ValidateIssuerSigningKey = true,//是否验证SecurityKey
+                        ValidAudience = "Audience",//Audience
+                        ValidIssuer = "Issuer",//Issuer，这两项和前面签发jwt的设置一致
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567890123456"))//拿到SecurityKey
+                    };
                 });
         }
 
