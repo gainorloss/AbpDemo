@@ -52,5 +52,10 @@ namespace Product.Application
         {
            await _manager.SetAsync(ProductManagementPermissions.Products.Default, "R", "admin", true);
         }
+
+        public async Task SetClientPermissionAsync()
+        {
+            await _manager.SetAsync(ProductManagementPermissions.Products.Default, "C", "admin", true);
+        }
     }
 }

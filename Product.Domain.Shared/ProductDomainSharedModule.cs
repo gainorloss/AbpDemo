@@ -7,6 +7,7 @@ using Volo.Abp.Modularity;
 namespace Product.Domain.Shared
 {
     [DependsOn(
+        typeof(AbpIdentityDomainSharedModule),
         typeof(AbpIdentityDomainSharedModule))]
     public class ProductDomainSharedModule:AbpModule
     {
