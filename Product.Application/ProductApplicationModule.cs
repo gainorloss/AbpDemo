@@ -4,11 +4,13 @@ using Product.Domain;
 using System;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Domain;
+using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 
 namespace Product.Application
 {
     [DependsOn(
+        typeof(AbpIdentityApplicationModule),
         typeof(ProductDomainModule),
         typeof(ProductApplicationConstractsModule),
         typeof(AbpAutoMapperModule)

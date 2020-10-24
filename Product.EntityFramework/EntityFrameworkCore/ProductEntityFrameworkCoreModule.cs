@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.SqlServer;
+using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 
 namespace Product.EntityFrameworkCore.EntityFrameworkCore
 {
     [DependsOn(
+        typeof(AbpIdentityEntityFrameworkCoreModule),
         typeof(ProductDomainModule),
         typeof(AbpEntityFrameworkCoreSqlServerModule)
         )]

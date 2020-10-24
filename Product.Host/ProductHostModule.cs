@@ -17,12 +17,14 @@ using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
+using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 
 namespace Product.Host
 {
     [DependsOn(
+        typeof(AbpIdentityHttpApiModule),
         typeof(AbpAspNetCoreMvcModule),
         typeof(AbpAutofacModule),
         typeof(ProductApplicationModule),

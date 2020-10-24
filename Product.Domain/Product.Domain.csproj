@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Domain" Version="3.2.1" />
+    <PackageReference Include="volo.abp.identity.domain" Version="3.2.1" />
+    <PackageReference Include="volo.abp.permissionmanagement.domain.identity" Version="3.2.1" />
   </ItemGroup>
 
 </Project>
